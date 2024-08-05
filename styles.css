@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #a2a2a2, #029cb7);
+    color: #fff;
+    overflow: hidden; 
+}
+
+#landingPage, #gamePage {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#landingPage {
+    max-width: 500px;
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-size: 2em; 
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1em; 
+}
+
+input, button {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 300px; 
+    padding: 10px;
+    font-size: 1em; 
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box; 
+}
+
+input {
+    margin-top: 0;
+}
+
+button {
+    background-color: #48adf0;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#startGameButton{
+    width: 30%;
+}
+
+button:hover {
+    background-color: #3040ee;
+}
+
+button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    grid-template-rows: repeat(5, 1fr); 
+    gap: 5px;
+    margin: 20px auto;
+    background-color: rgb(66, 64, 64);
+    max-width: 500px; 
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.tile {
+    transition: transform 0.3s, background-color 0.3s, border-color 0.3s;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; 
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.5em; 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.tile.gem {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6xVl9QEgMSJMzuUy0GaRLosmakzsfZmKJXg&s);
+    color: white;
+}
+
+.tile.mine {
+    background-image: url(https://media.istockphoto.com/id/149862676/vector/bomb.jpg?s=612x612&w=0&k=20&c=Q6x_QyKu2ljAHzp7Yy9zui8nbl1oe5SGkbQ2K9-zYek=);
+    color: white;
+}
+
+.tile.revealed {
+    animation: flip 0.6s forwards;
+}
+
+@keyframes flip {
+    0% {
+        transform: perspective(400px) rotateY(0deg) scale(1);
+    }
+    50% {
+        transform: perspective(400px) rotateY(90deg) scale(1.1);
+    }
+    100% {
+        transform: perspective(400px) rotateY(0deg) scale(1);
+    }
+}
+
+.gameControls {
+    margin-top: 20px;
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    input, button {
+        font-size: 0.9em;
+    }
+
+    .tile {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    input, button {
+        font-size: 0.8em;
+    }
+
+    .tile {
+        font-size: 1em;
+    }
+}
